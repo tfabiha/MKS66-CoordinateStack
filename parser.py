@@ -163,7 +163,7 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
         elif line == "push":
             if len(csystems) > 1:
                 csystems.append( [ x[:] for x in csystems[ len(csystems) - 1] ] )
-            #print_matrix( csystems.pop( len(csystems) - 1 ) )
+            print_matrix( csystems[ len(csystems) - 1  ])
         elif line == "pop":
             csystems.pop( len(csystems) - 1 )
     
