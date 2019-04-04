@@ -12,4 +12,4 @@ t = new_matrix()
 ident(t)
 csystems = [ t ]
 
-parse_file( 'script', edges, polygons, csystems, screen, color )
+parse_file( 'script2', edges, polygons, csystems, screen, color )
