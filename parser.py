@@ -84,6 +84,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step_3d)
             matrix_mult(csystems[ len(csystems) - 1 ], polygons)
+            
+            print( "drew a sphere" )
+
             draw_polygons(polygons, screen, color)
             display(screen)
             
@@ -95,6 +98,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), step_3d)
             matrix_mult(csystems[ len(csystems) - 1 ], polygons)
+
+            print( "drew a torus" )
+
             draw_polygons(polygons, screen, color)
             display(screen)
             
@@ -106,6 +112,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
                     float(args[0]), float(args[1]), float(args[2]),
                     float(args[3]), float(args[4]), float(args[5]))
             matrix_mult(csystems[ len(csystems) - 1 ], polygons)
+
+            print( "drew a box" )
+
             draw_polygons(polygons, screen, color)
             display(screen)
             
@@ -145,16 +154,20 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
             t = make_scale(float(args[0]), float(args[1]), float(args[2]))
-            matrix_mult(t, csystems[ len(csystems) - 1 ])
-
+            matrix_mult(csystems[ len(csystems) - 1 ], t)
+            
+            csystems[ len(csystems) - 1 ] = t          
+            
             print( "added scale to stack" )
             print_matrix( csystems[ len(csystems) - 1  ])
             
         elif line == 'move':
             #print 'MOVE\t' + str(args)
             t = make_translate(float(args[0]), float(args[1]), float(args[2]))
-            matrix_mult(t, csystems[ len(csystems) - 1 ])
+            matrix_mult(csystems[ len(csystems) - 1 ], t)
 
+            csystems[ len(csystems) - 1 ] = t          
+            
             print( "added move to stack" )
             print_matrix( csystems[ len(csystems) - 1  ])
             
@@ -168,8 +181,10 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
                 t = make_rotY(theta)
             else:
                 t = make_rotZ(theta)
-            matrix_mult(t, csystems[ len(csystems) - 1 ])
+            matrix_mult(csystems[ len(csystems) - 1 ], t)
 
+            csystems[ len(csystems) - 1 ] = t
+            
             print( "added rotate to stack" )
             print_matrix( csystems[ len(csystems) - 1  ])
             
@@ -192,8 +207,8 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             print( "pushed to stack" )
             print_matrix( csystems[ len(csystems) - 1  ])
         elif line == 'pop':
-            csystems.pop( len(csystems) - 1 )
-    
+            csystems.pop()
+            
         c+= 1
 
         
