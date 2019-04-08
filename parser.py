@@ -189,9 +189,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             print_matrix( csystems[ len(csystems) - 1  ])
             
         elif line == 'display' or line == 'save':
-            clear_screen(screen)
-            draw_lines(edges, screen, color)
-            draw_polygons(polygons, screen, color)
+            #clear_screen(screen)
+            #draw_lines(edges, screen, color)
+            #draw_polygons(polygons, screen, color)
 
             if line == 'display':
                 display(screen)
