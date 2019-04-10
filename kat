@@ -40,17 +40,30 @@ push
 move
 150 60 -80
 sphere
-0 0 0 20
+0 0 0 20 
+line
+0 0 0 0 140 80
+line
+0 0 0 0 140 -80
 
 push
 move
 -40 0 0
 sphere
 0 0 0 20
+line
+0 0 0 0 140 80
+line
+0 0 0 0 140 -80
+
 move
 -40 0 0
 sphere
 0 0 0 20
+line
+0 0 0 0 140 80
+line
+0 0 0 0 140 -80
 pop
 
 push
@@ -58,6 +71,10 @@ move
 40 0 0
 sphere
 0 0 0 20
+line
+0 0 0 0 140 80
+line
+0 0 0 0 140 -80
 
 push
 move
@@ -66,5 +83,8 @@ rotate
 z 20
 sphere
 0 -140 0 20
-
+line
+0 0 80 0 -140 0
+line
+0 0 -80 0 -140 0
 display

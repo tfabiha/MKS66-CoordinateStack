@@ -128,7 +128,8 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             matrix_mult(csystems[ len(csystems) - 1 ], edges)
             draw_lines(edges, screen, color)
             display(screen)
-                        
+            edges = []
+
         elif line == 'hermite' or line == 'bezier':
             #print 'curve\t' + line + ": " + str(args)
             add_curve(edges,
@@ -150,6 +151,7 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             matrix_mult(csystems[ len(csystems) - 1 ], edges)
             draw_lines(edges, screen, color)
             display(screen)
+            edges= []
             
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
